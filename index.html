@@ -1,0 +1,45 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+      <script src="js/jquery-3.4.1.js"></script>
+      <script src="js/scripts.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">  
+    <link href="css/styles.css" rel="stylesheet" type="text/css">  
+    <title>Ping Pong</title>
+  </head>
+
+
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h2>Ping Pong</h2>
+        <h4>An exercise to practice using Javascript arrays</h4>
+      </div>
+      <p>Let's play a silly exercise!</p>
+      <p>Enter two positive numbers, the second larger than the other.</p>
+      <p>I'll give you a range of all the numbers between the two but with these twists:</p>
+        <ul>
+          <li>I'll replace numbers divisible by 3 with "ping"</li>
+          <li>I'll replace numbers divisible by 5 with "pong"</li>
+          <li>I'll replace numbers divisible by 15 with "ping pong"</li>
+        </ul>
+      <form id="input">        
+        <div id="div-number1" class="form-group">
+          <label for="number1" class="control-label">Enter the starting number.</label>
+          <input id="number1" class="form-control" type="number" value="0">
+        </div>
+
+        <div id="div-number2" class="form-group">
+          <label for="number2" class="control-label">Enter the ending number.</label>
+          <input id="number2" class="form-control" type="number" value="10">
+        </div>
+          
+        <button type="submit" class="btn btn-primary btn-block">Show me my ping-pong numbers</button>
+      </form>
+      
+      <div id="div-output">
+      </div><!-- end output div-->
+
+    </div><!-- end container div-->
+  </body>
+</html>
