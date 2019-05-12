@@ -16,6 +16,7 @@ Behavior
   - if divisible by 3, replace with "ping"
   - if divisible by 5, replace with "pong"
   - if divisible by 15, replace with "ping pong"
+  - 0 should just be returned as 0
 1. validate inputs input validations:
   - if second number is smaller than the first, alert user and stop
   - if either number is non-positive, alert user and stop
