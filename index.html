@@ -16,7 +16,7 @@
         <h4>An exercise to practice using Javascript arrays</h4>
       </div>
       <p>Let's play a silly exercise!</p>
-      <p>Enter two positive numbers, the second larger than the other.</p>
+      <p>Enter two numbers equal or greater than zero, with the second larger than the first.</p>
       <p>I'll give you a range of all the numbers between the two but with these twists:</p>
         <ul>
           <li>I'll replace numbers divisible by 3 with "ping"</li>
@@ -25,13 +25,13 @@
         </ul>
       <form id="input">        
         <div id="div-number1" class="form-group">
-          <label for="number1" class="control-label">Enter the starting number.</label>
-          <input id="number1" class="form-control" type="number" value="0">
+          <label for="number1" class="control-label">Enter the starting number.<small><span id="span-err-number1"><span></small></label>
+          <input id="number1" class="form-control" type="number">
         </div>
 
         <div id="div-number2" class="form-group">
-          <label for="number2" class="control-label">Enter the ending number.</label>
-          <input id="number2" class="form-control" type="number" value="10">
+          <label for="number2" class="control-label">Enter the ending number.<small><span id="span-err-number2"></span></small></label>
+          <input id="number2" class="form-control" type="number">
         </div>
           
         <button type="submit" class="btn btn-primary btn-block">Show me my ping-pong numbers</button>

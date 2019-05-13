@@ -2,16 +2,72 @@
 $(document).ready(function(){
   $("form#input").submit(function(event){
     event.preventDefault();
-    $("div#div-output").html("");
 
+    // reset from previous runs
+    $("#div-output").html("");
+    $("#div-number1").removeClass("has-error");
+    $("#div-number2").removeClass("has-error");
+    
     // get and validate form input
-    var num1Input = parseInt($("input#number1").val());
-    var num2Input = parseInt($("input#number2").val());
+    var num1Input = parseInt($("#number1").val());
+    var num2Input = parseInt($("#number2").val());
 
-    // get and show output
-    $("div#div-output").html(rngNumbers(num1Input, num2Input));
+    // show output if valid inputs; else show alert
+    if ( validInputs(num1Input, num2Input)) {
+      $("div#div-output").html(rngNumbers(num1Input, num2Input));
+    }
   });
+
+  // returns true if inputs are valid
+  var validInputs = function(num1, num2) {
+      var num1Valid = true;
+      var num2Valid = true;
+      
+    // check each input individually
+    if (!isZeroOrPositive(num1) ) {
+      setErr("#div-number1","#span-err-number1", " Specify a zero or positive integer.");
+      num1Valid = false;
+    }
+
+    if (!isZeroOrPositive(num2) ) {
+      setErr("#div-number2","#span-err-number2", " Specify a zero or positive integer.");
+      num2Valid = false;
+    }
+
+    // compare the 2 inputs: that 2nd >= 1st and no more than 100 in between
+    // if either false; set alerts
+    if ( num1Valid && num2Valid ) {
+      if (num2 < num1) {
+        setErr("#div-number1","#span-err-number1", " First number must be smaller or equal to second number.");
+        setErr("#div-number2","#span-err-number2", " Second number must be larger or equal to first number.");
+        return false;
+      } else if (num2 - num1 > 100) {
+        setErr("#div-number1","#span-err-number1", " Choose a smaller range; no more than 100 numbers please.");
+        setErr("#div-number2","#span-err-number2", " Choose a smaller range; no more than 100 numbers please.");
+        return false;
+      } else {
+        return true;
+      }
+    }
+  }
+
+  // returns true is input is zero or positve number; false otherwise
+  var isZeroOrPositive = function(input) {
+    if (!input && input !=0) return false; // if any other falsey besides 0 -> false
+    if (isNaN(input)) return false; // if not a number -> false
+    if (input < 0) return false; // if negative number -> false
+    return true;
+  }
+
+  // set error styling on divDomID and also displays error message
+  var setErr = function(divDomId, msgDomId, msg) {
+    $(divDomId).addClass("has-error");
+    $(msgDomId).text(msg);
+  }
+
 });
+
+
 
 // biz logic
 var rngNumbers = function(num1, num2) {

@@ -20,9 +20,9 @@ Behavior
 1. validate inputs input validations:
   - if second number is smaller than the first, alert user and stop
   - if either number is non-positive, alert user and stop
-  - if either input is non-numeric, alert user and stop
-  - if first number is missing, assume 0
-  - if second number is missing, alert user and stop 
+  - if either number is non-numeric, alert user and stop
+  - if either number is missing, alert user and stop 
+  - zero is valid starting or ending number
 1. if the difference between the second and first number is over 100, alert user and stop
 
 ## Setup / Installation Requirements
