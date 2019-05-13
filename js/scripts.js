@@ -14,7 +14,13 @@ $(document).ready(function(){
 
     // show output if valid inputs; else show alert
     if ( validInputs(num1Input, num2Input)) {
-      $("div#div-output").html(rngNumbers(num1Input, num2Input));
+      var outputArray = arrPingPong(num1Input,num2Input);
+      var outputHTML = "<ol start='" + num1Input + "'>";
+      outputArray.forEach(function(item){
+        outputHTML += "<li>" + item + "</li>";
+      });
+      outputHTML += "</ol>"
+      $("div#div-output").html(outputHTML);
     }
   });
 
@@ -70,7 +76,7 @@ $(document).ready(function(){
 
 
 // biz logic
-var rngNumbers = function(num1, num2) {
+var arrPingPong = function(num1, num2) {
 // returns array of numbers between num1 and num2 inclusive with certain exceptions
 // 0 is always returns as 0, divisible by 3 returned as ping, by 5 as pong and by 15 as ping pong
 // assumes that num1 and num2 are positive integers
